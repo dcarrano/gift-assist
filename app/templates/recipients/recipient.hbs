@@ -2,3 +2,7 @@
 
 <h1>{{model.name}}</h1>
 <h5>{{model.relationship}}</h5>
+
+{{#each model.events as |event|}}
+{{#link-to 'events.event' event}}{{event.name}}{{/link-to}}
+{{/each}}
