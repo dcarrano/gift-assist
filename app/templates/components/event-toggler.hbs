@@ -1,0 +1,63 @@
+{{yield}}
+<!-- TOdo: move this logic into controller  -->
+<button class="btn btn-primary" {{action 'toggleShow'}}>
+  People/Gifts
+</button>
+{{#if isPeople}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        Details
+      </h4>
+    </div>
+    <table class="table table-fixed">
+      <thead>
+        <tr>
+          <th class="col-xs-12">Person</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.recipients as |recipient|}}
+          <tr>
+            <td class="col-xs-12">
+              <blockquote>
+                {{#link-to 'recipients.recipient' recipient}}{{recipient.name}}{{/link-to}}
+              <footer>
+                {{#each recipient.gifts as |gift|}}
+                {{#link-to 'gifts.gift' gift}}{{gift.name}}{{/link-to}},
+                {{/each}}
+              </footer>
+              </blockquote>
+            </td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        Details
+      </h4>
+    </div>
+    <table class="table table-fixed">
+      <thead>
+        <tr>
+          <th class="col-xs-3">Gift</th><th class="col-xs-3">Price</th>
+          <th class="col-xs-3">Link To</th><th class="col-xs-3">Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.gifts as |gift|}}
+          <tr>
+            <td class="col-xs-3">{{#link-to 'gifts.gift' gift}}{{gift.name}}{{/link-to}}</td><td   class="col-xs-3">{{gift.price}}</td>
+            <td class="col-xs-3"><a target="_blank" href="{{gift.url}}">Link</a></td><td class="col-xs-3">{{gift.priority}}</td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </div>
+{{/if}}

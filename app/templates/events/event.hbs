@@ -1,0 +1,11 @@
+{{outlet}}
+
+
+  <div class="row">
+    <h2 class='text-center'>- {{model.title}} -</h2>
+    <p class='text-center'>{{formatDate "LL" model.date}}</p>
+    <p class='text-center text-muted'><em>{{model.description}}</em></p>
+
+  </div>
+
+{{event-toggler model=model}}

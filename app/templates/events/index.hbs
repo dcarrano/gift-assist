@@ -1,13 +1,6 @@
 {{outlet}}
 
-{{#each model as |event|}}
-{{event.date}}
-{{event.title}}
-{{event.description}}
-<br>
-{{/each}}
 
-<div class="container">
   <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -24,7 +17,7 @@
           <tbody>
             {{#each model as |event|}}
               <tr>
-                <td class="col-xs-4">{{event.date}}</td><td class="col-xs-2">{{event.title}}</td><td class="col-xs-6">{{event.description}}</td>
+                <td class="col-xs-4">{{formatDate "LL" event.date}}</td><td class="col-xs-2">{{event.title}}</td><td class="col-xs-6">{{event.description}}</td>
               </tr>
             {{/each}}
 
@@ -32,4 +25,3 @@
         </table>
       </div>{{!-- panel panel-default --}}
   </div>{{!-- row --}}
-</div>{{!-- container --}}
