@@ -1,0 +1,19 @@
+{{outlet}}
+
+<h1>{{model.name}}</h1>
+
+{{#if model.recipient}}
+<h5>For: {{model.recipient.name}}</h5>
+{{/if}}
+
+{{#if model.event}}
+<h5>Occasion: {{model.event.title}}</h5>
+{{/if}}
+
+{{#if model.url}}
+<h5><a href="{{model.url}}">{{model.url}}</a></h5>
+{{/if}}
+
+{{#if model.price}}
+Price: ${{model.price}}
+{{/if}}
