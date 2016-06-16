@@ -2,7 +2,7 @@
 
 {{#each model as |recipient|}}
 
-  <h1>{{recipient.name}}</h1><br />
+  <h1>{{#link-to 'recipients.recipient' recipient}}{{recipient.name}}{{/link-to}}</h1><br />
 
   Relationship: {{recipient.relationship}}<br />
 {{/each}}

@@ -5,11 +5,11 @@
   <h1>{{gift.name}}</h1><br />
 
   {{#if gift.recipient}}
-  <h2>For: {{#link-to 'recipients' gift.recipient}}{{gift.recipient.name}}{{/link-to}}</h2><br />
+  <h2>For: {{#link-to 'recipients.recipient' gift.recipient}}{{gift.recipient.name}}{{/link-to}}</h2><br />
   {{/if}}
 
   {{#if gift.event}}
-  <h2>For: {{#link-to 'events' gift.event}}{{gift.event.name}}{{/link-to}}</h2><br />
+  <h2>For: {{#link-to 'events.event' gift.event}}{{gift.event.title}}{{/link-to}}</h2><br />
   {{/if}}
 
 {{/each}}
