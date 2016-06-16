@@ -1,5 +1,35 @@
 {{outlet}}
 
 {{#each model as |event|}}
+{{event.date}}
 {{event.title}}
+{{event.description}}
+<br>
 {{/each}}
+
+<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Events
+          </h4>
+        </div>
+        <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th class="col-xs-4">Date</th><th class="col-xs-2">Title</th><th class="col-xs-6">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model as |event|}}
+              <tr>
+                <td class="col-xs-4">{{event.date}}</td><td class="col-xs-2">{{event.title}}</td><td class="col-xs-6">{{event.description}}</td>
+              </tr>
+            {{/each}}
+
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
