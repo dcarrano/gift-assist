@@ -7,5 +7,5 @@ export default Model.extend({
   relationship: attr('string'),
   user: belongsTo('user', { async: true }),
   events: hasMany('event', { async: true }),
-  recipients: hasMany('recipient', { async: true })
+  gifts: hasMany('gift', { async: true })
 });

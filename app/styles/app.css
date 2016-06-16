@@ -127,7 +127,7 @@
   width: 97%;
 }
 .table-fixed tbody {
-  height: 230px;
+  height: 200px;
   overflow-y: auto;
   width: 100%;
 }
@@ -142,3 +142,13 @@
 /*import fonts*/
 * {
   font-family: 'Lato', sans-serif;
+}
+
+/*link effects*/
+a:hover {
+  color:#800000;
+}
+
+a:visited {
+  color: #008080;
+}
