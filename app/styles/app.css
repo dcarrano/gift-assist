@@ -152,3 +152,11 @@ a:hover {
 a:visited {
   color: #008080;
 }
+
+.table-row-link {
+  cursor: pointer;
+}
+
+.table-row-link:hover {
+  color: grey;
+}

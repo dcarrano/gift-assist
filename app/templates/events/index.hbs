@@ -16,9 +16,9 @@
           </thead>
           <tbody>
             {{#each model as |event|}}
-              <tr>
+              {{#link-to 'events.event' event tagName="tr" class="table-row-link"}}
                 <td class="col-xs-4">{{formatDate "LL" event.date}}</td><td class="col-xs-2">{{event.title}}</td><td class="col-xs-6">{{event.description}}</td>
-              </tr>
+              {{/link-to}}
             {{/each}}
 
           </tbody>
