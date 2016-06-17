@@ -54,15 +54,19 @@
       <table class="table table-fixed">
         <thead>
           <tr>
-            <th class="col-xs-3">Gift</th><th class="col-xs-3">Price</th>
-            <th class="col-xs-3">External Link</th><th class="col-xs-3">Priority</th>
+            <th class="col-xs-3">Gift</th>
+            <th class="col-xs-3">Price</th>
+            <th class="col-xs-3">External Link</th>
+            <th class="col-xs-3">Priority</th>
           </tr>
         </thead>
         <tbody>
           {{#each model.gifts as |gift|}}
             <tr>
-              <td class="col-xs-3">{{#link-to 'gifts.gift' gift}}{{gift.name}}{{/link-to}}</td><td   class="col-xs-3">{{gift.price}}</td>
-              <td class="col-xs-3"><a target="_blank" href="{{gift.url}}">Link</a></td><td class="col-xs-3">{{gift.priority}}</td>
+              <td class="col-xs-3">{{#link-to 'gifts.gift' gift}}{{gift.name}}{{/link-to}}</td>
+              <td   class="col-xs-3">{{gift.price}}</td>
+              <td class="col-xs-3"><a target="_blank" href="{{gift.url}}">Link</a></td>
+              <td class="col-xs-3">{{gift.priority}}</td>
             </tr>
           {{/each}}
 
