@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Controller.extend({
+
   actions: {
     toggleShow() {
       this.toggleProperty('isPeople')
