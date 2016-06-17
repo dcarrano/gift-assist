@@ -26,13 +26,14 @@ Router.map(function() {
       path: ':recipient_id'
     });
   });
-  
+
   this.route('users', function() {
     this.route('new');
     this.route('user', {
       path: ':user_id'
     });
   });
+  this.route('login');
 });
 
 export default Router;

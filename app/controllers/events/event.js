@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
 
   actions: {
     toggleShow() {
-      this.toggleProperty('isPeople')
+      this.toggleProperty('isPeople');
     }
   }
 });

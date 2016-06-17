@@ -1,4 +1,4 @@
-<div id="wrapper">
+--<div id="wrapper">
 
   <!-- sidebar -->
 
@@ -6,12 +6,16 @@
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
         <a href="#">
-          <img class="brand-logo" src="assets/images/logo-present5.png">
+          Logo?
         </a>
       </li>
-        <!-- Login, logout, sign up -->
+        <!-- Login, logout, sign up  -->
       <li>
-        <a href="/logout">Logout</a>
+        {{#if session.isAuthenticated}}
+        <a href="#" {{action 'invalidateSession'}}>Logout</a>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
       </li>
       <li>
         {{#link-to 'events'}}Events{{/link-to}}
@@ -48,7 +52,6 @@
         <div id="index-view">
 
         {{outlet}}
-
 
       </div><!-- index-view -->
       </div><!-- col-lg-12 -->
