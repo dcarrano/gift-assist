@@ -1,0 +1,21 @@
+<form class='form-horizontal'>
+  <div>
+  <label for='name'>Name of Gift</label><br />
+  {{input value=model.name}}
+</div>
+<div>
+  <label for='price'>Price you expect to pay (optional) - do not include dollar sign</label><br />
+  {{input value=model.price}}
+</div>
+<div>
+  <label for='url'>Link to where you found it (optional)</label><br />
+  {{input value=model.url}}
+</div>
+<div>
+  <label for='priority'>Priority (1 = most important to buy, 5 = least) (optional)</label><br />
+  {{input value=model.priority}}
+</div>
+<div>
+  <button id='submit' class='btn btn-primary' {{action 'save'}}>Save</button>
+</div>
+</form>

@@ -1,8 +1,17 @@
-{{outlet}}
-
 <h1>{{model.name}}</h1>
-<h5>{{model.relationship}}</h5>
+<h5>{{model.relationship}}</h5><br />
+
+<div>
+<button class="btn btn-danger" id="delete" {{action 'delete'}}>Delete this recipient</button>
+</div>
+
+<p></p>
+
+{{#if model.events}}
+
+You need to buy gifts for {{model.name}} for:
 
 {{#each model.events as |event|}}
 {{#link-to 'events.event' event}}{{event.name}}{{/link-to}}
 {{/each}}
+{{/if}}
