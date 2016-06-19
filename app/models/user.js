@@ -3,9 +3,9 @@ import attr from 'ember-data/attr';
 import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-    username: attr('string'),
     email: attr('string'),
-    password_digest: attr('string'),
+    password: attr('string'),
+    password_confirmation: attr('string'),
     events: hasMany('event', { async: true }),
     recipients: hasMany('recipient', { async: true })
 });

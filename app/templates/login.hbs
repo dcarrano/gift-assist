@@ -2,6 +2,8 @@
   < label for="identification">Email</label>
   {{input id='identification' value=identification}}
   < label for="password">Password</label>
-  {{input id='password' value=password}}
+  {{input id='password' type='password' value=password}}
   < button type="submit">Login</button>
 </form>
+
+Are you a new user? {{#link-to 'users.new'}}Sign up here.{{/link-to}}

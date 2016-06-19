@@ -1,0 +1,17 @@
+<form class='form-horizontal'>
+  <div>
+  <label for='email'>Your E-Mail Address</label>
+  {{input value=model.email}}
+</div>
+<div>
+  <label for='password' type='password'>Your desired password</label>
+  {{input type='password' value=model.password}}
+</div>
+<div>
+  <label for='password_confirmation' type='password'>Confirm your desired password by typing it again</label>
+  {{input type='password' value=model.password_confirmation}}
+</div>
+<div>
+  <button id='submit' class='btn btn-primary' {{action 'save'}}>Save</button>
+</div>
+</form>
