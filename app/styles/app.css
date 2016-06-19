@@ -150,10 +150,6 @@ a:hover {
   color:#800000;
 }
 
-a:visited {
-  color: #008080;
-}
-
 .table-row-link {
   cursor: pointer;
 }

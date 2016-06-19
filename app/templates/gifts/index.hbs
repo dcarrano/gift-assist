@@ -1,6 +1,6 @@
 {{outlet}}
 
-{{#each model as |gift|}}
+<!-- {{#each model as |gift|}}
 
   <h1>{{gift.name}}</h1><br />
 
@@ -12,4 +12,38 @@
   <h2>For: {{#link-to 'events.event' gift.event}}{{gift.event.title}}{{/link-to}}</h2><br />
   {{/if}}
 
-{{/each}}
+{{/each}} -->
+
+
+<div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          Gifts
+        </h4>
+      </div>{{!-- panel-heading --}}
+      <table class="table table-fixed">
+        <thead>
+          <tr>
+            <th class="col-xs-4">Name</th>
+            <th class="col-xs-3">Event</th>
+            <th class="col-xs-2">Price</th>
+            <th class="col-xs-2">Priority</th>
+            <th class="col-xs-1">Amazon Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |gift|}}
+            {{#link-to 'gifts.gift' gift tagName="tr" class="table-row-link"}}
+              <td class="col-xs-4">{{gift.name}}</td>
+              <td class="col-xs-3">{{gift.event.title}}</td>
+              <td class="col-xs-2">$ {{gift.price}}</td>
+              <td class="col-xs-2">{{gift.priority}}</td>
+              {{/link-to}}
+              <td class="col-xs-1"><a target="_blank" href="{{gift.url}}">Link</a></td>
+          {{/each}}
+
+        </tbody>
+      </table>
+    </div>{{!-- panel panel-default --}}
+</div>{{!-- row --}}
