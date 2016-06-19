@@ -1,28 +1,22 @@
 {{outlet}}
 
 <form>
-  <div class="form-group">
+  <div class="form-group row">
     <label for="title" class="col-lg-2 control-label">Event Title</label>
-    {{input value=model.title id='title'}}
+    {{input value=model.title id='title' class="col-lg-4" placeholder="Title"}}
   </div>
 
-  <div class="form-group">
-    <label for="url" class="col-lg-2 control-label">Description</label>
-    {{input value=model.url id='url'}}
-  </div>
-
-  <div class="form-group">
-    <label for="topic" class="col-lg-2 control-label">Topic</label>
-    {{input value=model.topic id='topic'}}
-  </div>
-
-  <div class="form-group">
+  <div class="form-group row">
     <label for="description" class="col-lg-2 control-label">Description</label>
-    {{input value=model.description id='description'}}
+    {{textarea value=model.description id='url' class="col-lg-4" placeholder="Description"}}
+  </div>
+  <div class="form-group row">
+    <label for="date" class="col-lg-2 control-label">Date</label>
+    {{bootstrap-datepicker startView="year" todayHighlight=true autoclose=false value=model.date class="col-lg-4" }}
   </div>
 
+
   <div class="form-group">
-    Give the button below an action of 'save'!
-    <button id="submit" class="btn btn-primary" {{action 'save' model}}>Save</button>
+    <button id="submit" class="btn btn-primary" {{action 'save' model}}>Create Event</button>
   </div>
 </form>
