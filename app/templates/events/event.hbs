@@ -14,6 +14,10 @@
     People/Gifts
   </button>
 
+  <button class="btn btn-danger" {{action 'delete'}}>
+    Delete This Event
+  </button>
+
   {{#if isPeople}}
     <button type="button" name="button" class='btn btn-primary' {{action 'eventAddPerson'}}>
       {{#if isAddingPerson}}
