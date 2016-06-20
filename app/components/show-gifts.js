@@ -5,7 +5,10 @@ export default Ember.Component.extend({
     let event = this.get('event')
     let recipient = this.get('recipient')
     return recipient.get('gifts').filter(function(gift){
-      return gift.get('event.id') === event.get('id')
+      let gifts_event = gift.get('event')
+      if (gifts_event) {
+        return gifts_event.get('id') === event.get('id')
+      }
     })
   })
 });
