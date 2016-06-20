@@ -22,20 +22,6 @@ export default Ember.Controller.extend({
       } else {
         alert("That name is already associated with this event")
       }
-      // event recipients includes a recipient by this name, DON'T call event.update()
-      // instead show a message or an alert that this recipient already exists
-      // let event = this.get('model')
-      // event.get('recipients').pushObject(recipient)
-      // event.update().then((response)=>{
-      //   debugger;
-      // })
-      // let name = recipient.get("name")
-      // let capName = name.split(" ").map(function(word) {return word.capitalize()}).join(" ")
-      // let temp_recipient = this.store.createRecord('recipient')
-      // recipient.set('name', "")
-      // temp_recipient.set('name', capName)
-      // temp_recipient.set('events', recipient.get("events"))
-      // temp_recipient.save();
     }
   }
 });
