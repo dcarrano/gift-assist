@@ -14,10 +14,6 @@
     People/Gifts
   </button>
 
-  <button class="btn btn-danger" {{action 'delete'}}>
-    Delete This Event
-  </button>
-
   {{#if isPeople}}
     <button type="button" name="button" class='btn btn-primary' {{action 'eventAddPerson'}}>
       {{#if isAddingPerson}}
@@ -25,6 +21,9 @@
       {{else}}
         New Person
       {{/if}}
+    </button>
+    <button class="btn btn-danger" {{action 'delete'}}>
+      Delete This Event
     </button>
     {{#if isAddingPerson}}
       {{add-person saveChanges=(action 'update') event=model}}
@@ -62,6 +61,9 @@
       {{/if}}
   {{else}}
     <button type="button" name="button" class='btn btn-primary'>New Gift</button>
+    <button class="btn btn-danger" {{action 'delete'}}>
+      Delete This Event
+    </button>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4>
