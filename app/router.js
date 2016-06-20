@@ -29,10 +29,6 @@ Router.map(function() {
 
   this.route('users', function() {
     this.route('new');
-    this.route('user', {
-      path: ':user_id'
-    });
-    this.route('edit');
   });
   this.route('login');
 });
