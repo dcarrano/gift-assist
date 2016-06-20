@@ -1,0 +1,14 @@
+{{yield}}
+
+<h3>Add New Person</h3>
+<form>
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Name</label>
+    {{input value=recipient.name id='name' class="col-lg-4" placeholder="Name"}}
+  </div>
+
+
+  <div class="form-group">
+    <button id="submit" class="btn btn-primary" {{action 'addEventPerson' recipient}}>Add Person</button>
+  </div>
+</form>

@@ -14,41 +14,56 @@
     People/Gifts
   </button>
 
-  <button class="btn btn-danger" {{action 'delete'}}>
-    Delete This Event
-  </button>
-
   {{#if isPeople}}
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Event People
-        </h4>
-      </div>
-      <table class="table table-fixed">
-        <thead>
-          <tr>
-            <th class="col-xs-12"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each model.recipients as |recipient|}}
+    <button type="button" name="button" class='btn btn-primary' {{action 'eventAddPerson'}}>
+      {{#if isAddingPerson}}
+        See People
+      {{else}}
+        New Person
+      {{/if}}
+    </button>
+    <button class="btn btn-danger" {{action 'delete'}}>
+      Delete This Event
+    </button>
+    {{#if isAddingPerson}}
+      {{add-person saveChanges=(action 'update') event=model}}
+    {{else}}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Event People
+          </h4>
+        </div>
+        <table class="table table-fixed">
+          <thead>
             <tr>
-              <td class="col-xs-12">
-                <blockquote>
-                  {{#link-to 'recipients.recipient' recipient}}{{recipient.name}}{{/link-to}}
-                <footer>
-                  {{show-gifts recipient=recipient event=model}}
-                </footer>
-                </blockquote>
-              </td>
+              <th class="col-xs-12"></th>
             </tr>
-          {{/each}}
-
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {{#each model.recipients as |recipient|}}
+              {{#if recipient.name}}
+                <tr>
+                  <td class="col-xs-12">
+                    <blockquote>
+                      {{#link-to 'recipients.recipient' recipient}}{{recipient.name}}{{/link-to}}
+                      <footer>
+                        {{show-gifts recipient=recipient event=model}}
+                      </footer>
+                    </blockquote>
+                  </td>
+                </tr>
+              {{/if}}
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      {{/if}}
   {{else}}
+    <button type="button" name="button" class='btn btn-primary'>New Gift</button>
+    <button class="btn btn-danger" {{action 'delete'}}>
+      Delete This Event
+    </button>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4>
