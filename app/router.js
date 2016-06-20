@@ -32,6 +32,7 @@ Router.map(function() {
     this.route('user', {
       path: ':user_id'
     });
+    this.route('edit');
   });
   this.route('login');
 });

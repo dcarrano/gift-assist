@@ -25,20 +25,21 @@
       <table class="table table-fixed">
         <thead>
           <tr>
-            <th class="col-xs-4">Name</th>
+            <th class="col-xs-3">Gift</th>
+            <th class="col-xs-3">For</th>
             <th class="col-xs-3">Event</th>
             <th class="col-xs-2">Price</th>
-            <th class="col-xs-2">Priority</th>
-            <th class="col-xs-1">Amazon Link</th>
+            <th class="col-xs-1">Link</th>
           </tr>
         </thead>
         <tbody>
           {{#each model as |gift|}}
             {{#link-to 'gifts.gift' gift tagName="tr" class="table-row-link"}}
-              <td class="col-xs-4">{{gift.name}}</td>
+              <td class="col-xs-3">{{gift.name}}</td>
+              <td class="col-xs-3">{{gift.recipient.name}}</td>
               <td class="col-xs-3">{{gift.event.title}}</td>
               <td class="col-xs-2">$ {{gift.price}}</td>
-              <td class="col-xs-2">{{gift.priority}}</td>
+
               {{/link-to}}
               <td class="col-xs-1"><a target="_blank" href="{{gift.url}}">Link</a></td>
           {{/each}}

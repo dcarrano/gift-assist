@@ -1,0 +1,13 @@
+<form class='form-horizontal'>
+  <div>
+  <label for='name'>Recipient's Name</label>
+  {{input value=model.name}}
+</div>
+<div>
+  <label for='relationship'>Their relationship to you</label>
+  {{input value=model.relationship}}
+</div>
+<div>
+  <button id='submit' class='btn btn-primary' {{action 'save'}}>Save</button>
+</div>
+</form>
