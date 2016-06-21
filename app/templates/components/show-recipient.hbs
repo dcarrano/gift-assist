@@ -1,0 +1,21 @@
+{{#if isEditing}}
+
+<form>
+  <div class="form-group row">
+    <label for="name" class="col-lg-2 control-label">Person's Name</label>
+    {{input value=recipient.name id='title' class="col-lg-4"}}
+    <button class='btn btn-primary' {{action 'submit' resource id='submit'}}>Save</button>
+    <button class='btn btn-danger' {{action 'edit' on='click'}}>Cancel</button>
+  </div>
+
+  <div class="form-group row">
+    <label for="description" class="col-lg-2 control-label">Their relationship to you</label>
+    {{input value=recipient.relationship id='description' class="col-lg-4"}}
+  </div>
+</form>
+
+
+ {{else}}
+ <h1 {{action 'edit' on='click'}}>{{recipient.name}}</h1>
+ <h5 {{action 'edit' on='click'}}>{{recipient.relationship}}</h5><br />
+ {{/if}}
