@@ -13,7 +13,7 @@ export default Ember.Service.extend({
      if (!Ember.isEmpty(token)) {
       $.ajax({
         headers: {'Authorization': `Bearer ${token}`},
-        url: `http://${config.host}/api/v1/users/current-user`,
+        url: 'http://' + config.host + '/api/v1/users/current-user',
         method: 'GET', dataType: 'json',
         success: function(user){
            that.set('account', user);
