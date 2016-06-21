@@ -47,6 +47,9 @@ export default Ember.Controller.extend({
           })
         })
       }
+    },
+    editUpdate: function(model) {
+      model.save();
     }
   }
 });
