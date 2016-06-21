@@ -1,0 +1,34 @@
+{{yield}}
+
+<h3>Add New Gift</h3>
+<form>
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Gift Name</label>
+    {{input value=gift.name id='name' class="col-lg-4" placeholder="Gift Name"}}
+  </div>
+
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Price</label>
+    {{input value=gift.price id='price' class="col-lg-4" placeholder="Price"}}
+  </div>
+
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Link</label>
+    {{input value=gift.url id='url' class="col-lg-4" placeholder="www.example.com"}}
+  </div>
+
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Priority (1 to 10)</label>
+    {{input value=gift.priority id='priority' class="col-lg-4" placeholder="1 - 10"}}
+  </div>
+
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Person For:</label>
+    {{input value=recipient.name id='recipient-name' class="col-lg-4" placeholder="Name"}}
+  </div>
+
+
+  <div class="form-group">
+    <button id="submit" class="btn btn-primary" {{action 'addEventGift' gift recipient}}>Add Gift</button>
+  </div>
+</form>
