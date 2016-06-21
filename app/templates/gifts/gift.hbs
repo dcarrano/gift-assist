@@ -1,22 +1,4 @@
-{{outlet}}
-
-<h1>{{model.name}}</h1>
-
-{{#if model.recipient}}
-<h5>For: {{model.recipient.name}}</h5>
-{{/if}}
-
-{{#if model.event}}
-<h5>Occasion: {{model.event.title}}</h5>
-{{/if}}
-
-{{#if model.url}}
-<h5><a target="_blank" href="{{model.url}}">{{model.url}}</a></h5>
-{{/if}}
-
-{{#if model.price}}
-Price: ${{model.price}}
-{{/if}}
+{{show-gift saveChanges=(action "editUpdate") gift=model}}
 
 <div>
 <button class="btn btn-danger" id="delete" {{action 'delete'}}>Delete this gift</button>

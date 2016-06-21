@@ -4,7 +4,7 @@
   <div class="form-group row">
     <label for="title" class="col-lg-2 control-label">Event Title</label>
     {{input value=event.title id='title' class="col-lg-4"}}
-    <button class='btn btn-primary' {{action 'submit' resource id='submit'}}>Save</button>
+    <button class='btn btn-primary' {{action 'submit' event id='submit'}}>Save</button>
     <button class='btn btn-danger' {{action 'edit' on='click'}}>Cancel</button>
   </div>
 
