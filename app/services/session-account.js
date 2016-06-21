@@ -5,7 +5,7 @@ const { inject: { service }, RSVP } = Ember;
 export default Ember.Service.extend({
  session: service('session'),
  store: service(),
- 
+
  loadCurrentUser() {
    return new RSVP.Promise((resolve, reject) => {
      let that = this
@@ -13,7 +13,7 @@ export default Ember.Service.extend({
      if (!Ember.isEmpty(token)) {
       $.ajax({
         headers: {'Authorization': `Bearer ${token}`},
-        url: 'http://localhost:3000/api/v1/users/current-user',
+        url: 'http://gift-assist-api.herokuapp.com/api/v1/users/current-user',
         method: 'GET', dataType: 'json',
         success: function(user){
            that.set('account', user);
