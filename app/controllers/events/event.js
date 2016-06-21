@@ -5,9 +5,13 @@ export default Ember.Controller.extend({
   actions: {
     toggleShow() {
       this.toggleProperty('isPeople')
+      this.toggleProperty('peopleView')
     },
     eventAddPerson() {
       this.toggleProperty('isAddingPerson')
+    },
+    eventAddGift() {
+      this.toggleProperty('isAddingGift')
     },
     update: function(recipient) {
       let recipient_names = this.get('model.recipients').mapBy('name')
@@ -23,8 +27,29 @@ export default Ember.Controller.extend({
         alert("That name is already associated with this event")
       }
     },
+    giftUpdate: function(gift, recipient) {
+      let recipName = recipient.get("name")
+      let giftName = gift.get('name')
+      if (recipName === undefined || giftName === undefined || giftName === "") {
+        alert("gift name and person name are required")
+        this.toggleProperty('isAddingGift')
+      } else {
+        let recipCapName = recipName.split(" ").map(function(word) {return word.capitalize()}).join(" ")
+        recipient.set('name', recipCapName)
+        recipient.set('events', [this.get('model')])
+
+
+        gift.set('event', this.get('model'))
+        recipient.save().then((recipient) => {
+          gift.set('recipient', recipient)
+          gift.save().then((gift) => {
+            this.toggleProperty('isAddingGift')
+          })
+        })
+      }
+    },
     editUpdate: function(model) {
-       model.save();
-     }
+      model.save();
+    }
   }
 });

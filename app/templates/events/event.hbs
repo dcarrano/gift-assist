@@ -1,7 +1,11 @@
   {{show-event saveChanges=(action "editUpdate") event=model}}
 
   <button class="btn btn-primary" {{action 'toggleShow'}}>
-    People/Gifts
+    {{#if peopleView}}
+      See Gifts
+    {{else}}
+      See People
+    {{/if}}
   </button>
 
   {{#if isPeople}}
@@ -22,7 +26,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4>
-            Event People
+            People
           </h4>
         </div>
         <table class="table table-fixed">
@@ -51,36 +55,71 @@
         </div>
       {{/if}}
   {{else}}
-    <button type="button" name="button" class='btn btn-primary'>New Gift</button>
+    <button type="button" name="button" class='btn btn-primary' {{action 'eventAddGift'}}>
+    {{#if isAddingGift}}
+      See Gifts
+    {{else}}
+      New Gift
+    {{/if}}
+    </button>
     <button class="btn btn-danger" {{action 'delete'}}>
       Delete This Event
     </button>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Event Gifts
-        </h4>
-      </div>
-      <table class="table table-fixed">
-        <thead>
-          <tr>
-            <th class="col-xs-3">Gift</th>
-            <th class="col-xs-3">Price</th>
-            <th class="col-xs-3">External Link</th>
-            <th class="col-xs-3">Priority</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each model.gifts as |gift|}}
+    {{#if isAddingGift}}
+      {{add-event-gift saveNewGift=(action 'giftUpdate') event=model}}
+    {{else}}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>
+            Gifts
+          </h4>
+        </div>
+        <table class="table table-fixed">
+          <thead>
             <tr>
-              <td class="col-xs-3">{{#link-to 'gifts.gift' gift}}{{gift.name}}{{/link-to}}</td>
-              <td   class="col-xs-3">{{gift.price}}</td>
-              <td class="col-xs-3"><a target="_blank" href="{{gift.url}}">Link</a></td>
-              <td class="col-xs-3">{{gift.priority}}</td>
+              <th class="col-xs-3">Gift</th>
+              <th class="col-xs-3">Price</th>
+              <th class="col-xs-3">External Link</th>
+              <th class="col-xs-3">Priority</th>
             </tr>
-          {{/each}}
+          </thead>
+          <tbody>
+            {{#each model.gifts as |gift|}}
+              <tr>
+                <td class="col-xs-3">
+                  {{#if gift.name}}
+                    {{#link-to 'gifts.gift' gift}}{{gift.name}}{{/link-to}}
+                  {{else}}
+                    -none-
+                  {{/if}}
+                </td>
+                <td class="col-xs-3">
+                  {{#if gift.price}}
+                    {{gift.price}}
+                  {{else}}
+                    -
+                  {{/if}}
+                </td>
+                <td class="col-xs-3">
+                  {{#if gift.url}}
+                    <a target="_blank" href="{{gift.url}}">Link</a>
+                  {{else}}
+                    -
+                  {{/if}}
 
-        </tbody>
-      </table>
-    </div>
+                </td>
+                <td class="col-xs-3">
+                  {{#if gift.priority}}
+                    {{gift.priority}}
+                  {{else}}
+                    -
+                  {{/if}}
+                </td>
+              </tr>
+              {{/each}}
+
+            </tbody>
+          </table>
+        </div>
+      {{/if}}
   {{/if}}
