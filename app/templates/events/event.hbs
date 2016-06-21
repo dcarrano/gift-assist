@@ -1,14 +1,4 @@
-{{outlet}}
-
-
-  <div class="row">
-    <h2 class='text-center'>- {{model.title}} -</h2>
-    <p class='text-center'>{{formatDate "LL" model.date}}</p>
-    <p class='text-center text-muted'><em>{{model.description}}</em></p>
-
-  </div>
-
-
+  {{show-event saveChanges=(action "editUpdate") event=model}}
 
   <button class="btn btn-primary" {{action 'toggleShow'}}>
     People/Gifts
@@ -25,6 +15,7 @@
     <button class="btn btn-danger" {{action 'delete'}}>
       Delete This Event
     </button>
+
     {{#if isAddingPerson}}
       {{add-person saveChanges=(action 'update') event=model}}
     {{else}}

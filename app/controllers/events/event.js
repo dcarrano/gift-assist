@@ -22,6 +22,9 @@ export default Ember.Controller.extend({
       } else {
         alert("That name is already associated with this event")
       }
-    }
+    },
+    editUpdate: function(model) {
+       model.save();
+     }
   }
 });
