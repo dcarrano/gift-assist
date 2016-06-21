@@ -1,0 +1,28 @@
+{{#if isEditing}}
+
+<form>
+  <div class="form-group row">
+    <label for="title" class="col-lg-2 control-label">Event Title</label>
+    {{input value=event.title id='title' class="col-lg-4"}}
+    <button class='btn btn-primary' {{action 'submit' resource id='submit'}}>Save</button>
+    <button class='btn btn-danger' {{action 'edit' on='click'}}>Cancel</button>
+  </div>
+
+  <div class="form-group row">
+    <label for="description" class="col-lg-2 control-label">Description</label>
+    {{input value=event.description id='description' class="col-lg-4"}}
+  </div>
+  <div class="form-group row">
+    <label for="date" class="col-lg-2 control-label">Date</label>
+    {{bootstrap-datepicker startView="year" todayHighlight=true autoclose=false value=event.date class="col-lg-4" }}
+  </div>
+</form>
+
+
+ {{else}}
+   <div class="row">
+     <h2 class='text-center' {{action 'edit' on='click'}}>- {{event.title}} -</h2>
+     <p class='text-center' {{action 'edit' on='click'}}>{{formatDate "LL" event.date}}</p>
+     <p class='text-center text-muted' {{action 'edit' on='click'}}><em>{{event.description}}</em></p>
+   </div>
+ {{/if}}
