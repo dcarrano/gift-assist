@@ -1,5 +1,4 @@
-<h1>{{model.name}}</h1>
-<h5>{{model.relationship}}</h5><br />
+{{show-recipient saveChanges=(action "editUpdate") recipient=model}}
 
 <div>
 <button class="btn btn-danger" id="delete" {{action 'delete'}}>Delete this recipient</button>
@@ -7,11 +6,38 @@
 
 <p></p>
 
-{{#if model.events}}
+{{#if model.gifts}}
 
-You need to buy gifts for {{model.name}} for:
+Gifts you want to buy for {{model.name}}:<br />
 
-{{#each model.events as |event|}}
-{{#link-to 'events.event' event}}{{event.name}}{{/link-to}}
-{{/each}}
+<div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      </div><!-- panel-heading -->
+      <table class="table table-fixed">
+        <thead>
+          <tr>
+            <th class="col-xs-3">Gift</th>
+            <th class="col-xs-3">Event</th>
+            <th class="col-xs-2">Price</th>
+            <th class="col-xs-2">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model.gifts as |gift|}}
+          <tr>
+            {{#link-to 'gifts.gift' gift tagName="tr" class="table-row-link"}}
+              <td class="col-xs-3">{{gift.name}}</td>
+              <td class="col-xs-3">{{gift.event.title}}</td>
+              <td class="col-xs-2">$ {{gift.price}}</td>
+
+              {{/link-to}}
+              <td class="col-xs-2"><a target="_blank" href="{{gift.url}}">Link</a></td>
+            </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+    </div><!-- panel panel-default-->
+</div><!-- row-->
 {{/if}}
