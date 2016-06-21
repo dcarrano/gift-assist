@@ -1,0 +1,41 @@
+{{#if isEditing}}
+
+<form>
+  <div class="form-group row">
+    <label for="name" class="col-lg-2 control-label">Name of Gift</label>
+    {{input value=gift.name id='name' class="col-lg-4"}}
+    <button class='btn btn-primary' {{action 'submit' gift id='submit'}}>Save</button>
+    <button class='btn btn-danger' {{action 'edit' on='click'}}>Cancel</button>
+  </div>
+
+  <div class="form-group row">
+    <label for="url" class="col-lg-2 control-label">Internet Link (optional)</label>
+    {{input value=gift.url id='url' class="col-lg-4"}}
+  </div>
+  <div class="form-group row">
+    <label for="price" class="col-lg-2 control-label">Price (optional) - omit dollar sign</label>
+    {{input value=gift.price id='price' class="col-lg-4"}}
+  </div>
+</form>
+
+{{else}}
+
+<h1 {{action 'edit' on='click'}}>{{gift.name}}</h1>
+
+{{#if gift.recipient}}
+<h5 {{action 'edit' on='click'}}>For: {{gift.recipient.name}}</h5>
+{{/if}}
+
+{{#if gift.event}}
+<h5 {{action 'edit' on='click'}}>Occasion: {{gift.event.title}}</h5>
+{{/if}}
+
+{{#if gift.url}}
+<h5 {{action 'edit' on='click'}}><a target="_blank" href="{{gift.url}}">{{gift.url}}</a></h5>
+{{/if}}
+
+{{#if gift.price}}
+<p {{action 'edit' on='click'}}>Price: ${{gift.price}}</p>
+{{/if}}
+
+{{/if}}
